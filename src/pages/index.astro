@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Intro from "../components/Intro.astro";
+import Experience from "../components/Experience.astro";
+import SectionMain from "../components/SectionMain.astro";
+import Projects from "../components/Projects.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <main class="px-4">
+    <SectionMain>
+      <Intro id="intro" />
+    </SectionMain>
+    <SectionMain id="experience">
+      <Experience />
+    </SectionMain>
+    <SectionMain class="flex-wrap" id="projects">
+      <Projects />
+    </SectionMain>
+    <SectionMain>
+      <Footer />
+    </SectionMain>
+  </main>
+</Layout>

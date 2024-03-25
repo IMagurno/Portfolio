@@ -1,0 +1,84 @@
+---
+import Code from "./iconos/Code.astro";
+import GitHub from "./iconos/GitHub.astro";
+import Link from "./iconos/Link.astro";
+import NextJS from "./iconos/NextJS.astro";
+import Tailwind from "./iconos/Tailwind.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "NoseAI",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum doloribus voluptates officiis optio",
+    link: "#",
+    github: "#",
+    image: "./Noseai.png",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Project 2",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum doloribus voluptates officiis optio",
+    link: "#",
+    github: "Hika",
+    image: "https://via.placeholder.com/300x200",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+];
+---
+
+<main class="flex itmes-center flex-col gap-10">
+  <h3
+    class="text-4xl font-semibold mt-16 md:mb-10 flex flex-row items-center gap-4"
+  >
+    <Code /> Lastest Projects
+  </h3>
+  {
+    PROJECTS.map(({ image, title, description, tags, github, link }) => (
+      <article class="flex flex-row gap-7">
+        <img
+          src={image}
+          class="h-[200px] w-[300px] object-cover object-center rounded-xl"
+          alt=""
+        />
+        <div class="">
+          <h3 class="text-4xl font-bold">{title}</h3>
+          <ul class="flex flex-row mb-2 gap-x-2">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                >
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-gray-400">{description}</p>
+          <div class="flex flex-row">
+            <a href={github}>
+              <GitHub />
+            </a>
+            <a href={link}>
+              <Link />
+            </a>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</main>
